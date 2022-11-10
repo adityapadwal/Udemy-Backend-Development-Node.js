@@ -1,4 +1,4 @@
-// Importing the http module and the file system module.
+// Importing the http module.
 const http = require('http');
 const { handler } = require('./routes');
 // Importing the routes module locally which handles all the event listeners
