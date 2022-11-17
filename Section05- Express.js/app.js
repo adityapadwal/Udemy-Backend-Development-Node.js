@@ -1,14 +1,25 @@
-// Importing the http module
-const http = require('http');
-
 // Import express 
 const express = require('express');
 
-// Creating an express application an putting it in a const
-// by running it as a function
+// Creating an express application and putting it in a const
+// by running it as a function 
+// this app constant also happens to be a valid request handler
 const app = express();
-// This app is also a valid request handler, hence we are passing it to the createServer function
 
-const server = http.createServer(app);
+// .use() allows us to add a new middleware function
+app.use('/', (req, res, next) => {
+    console.log('This always runs! ');
+    next();
+})
 
-server.listen(3000);
+app.use('/add-product',(req, res, next) => {
+    console.log('In add-product middleware');
+    res.send('<h1>The Add Product Page</h1>');
+});
+
+app.use('/',(req, res, next) => {
+    console.log('In the middleware! ');
+    res.send('<h1>Hello from express.js</h1>');
+});
+
+app.listen(3000);
