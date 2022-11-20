@@ -1,7 +1,14 @@
 // Import express 
 const express = require('express');
-// Inporting body-parser
+// Importing the path core module
+const path = require('path');
+// Importing body-parser
 const bodyParser = require('body-parser');
+
+// Importing adminRoutes.js from routes folder
+const adminRoutes = require('./routes/admin.js');
+// Importing shop.js from the routes folder
+const shopRoutes = require('./routes/shop.js');
 
 // Creating an express application and putting it in a const
 // by running it as a function 
@@ -10,17 +17,11 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use('/add-product',(req, res, next) => {
-    res.send('<form action="/product" method="POST"> <input type="text" name="title"> <button type="submit">Add Product</button> </form>');
-});
+app.use('/admin', adminRoutes);
+app.use(shopRoutes);
 
-app.post('/product', (req, res, next) => {
-    console.log(req.body);
-    res.redirect('/');
-});
-
-app.use('/',(req, res, next) => {
-    res.send('<h1>Hello from express.js</h1>');
+app.use((req, res, next)=> {
+    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
 });
 
 app.listen(3000);
