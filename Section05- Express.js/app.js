@@ -1,7 +1,7 @@
 // Import express 
 const express = require('express');
 // Importing the path core module
-const path = require('path');
+const path = require('path'); // to work on all operating systems
 // Importing body-parser
 const bodyParser = require('body-parser');
 
