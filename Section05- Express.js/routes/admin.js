@@ -1,10 +1,10 @@
 // Importing express
 const express = require("express");
 
-const rootDir = require('../util/path');
+const rootDir = require('../util/path'); // to work on all operating systems
 
 // Importing the path core module
-const path = require('path'); // to work on all operating systems
+const path = require('path'); 
 
 // creating a router
 const router = express.Router();
