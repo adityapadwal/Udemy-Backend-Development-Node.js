@@ -8,9 +8,12 @@ const bodyParser = require("body-parser");
 const expressHbs = require("express-handlebars");
 
 // Importing adminRoutes.js from routes folder
-const adminData = require("./routes/admin.js");
+const adminRoutes = require("./routes/admin.js");
 // Importing shop.js from the routes folder
 const shopRoutes = require("./routes/shop.js");
+
+// Importing errors controller
+const errorController = require('./controllers/error.js');
 
 // Creating an express application and putting it in a const
 // by running it as a function
@@ -27,11 +30,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // This is for static serving of pages
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/admin", adminData.routes);
+app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 
-app.use((req, res, next) => {
-  res.status(404).render("404", { pageTitle: "Page Not Found!", path: "" });
-});
+app.use(errorController.get404);
 
 app.listen(3000);
