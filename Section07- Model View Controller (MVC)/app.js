@@ -5,7 +5,7 @@ const path = require("path");
 // Importing body-parser
 const bodyParser = require("body-parser");
 // Importing Handlebars
-const expressHbs = require("express-handlebars");
+// const expressHbs = require("express-handlebars");
 
 // Importing adminRoutes.js from routes folder
 const adminRoutes = require("./routes/admin.js");

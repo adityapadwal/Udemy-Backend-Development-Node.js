@@ -1,4 +1,6 @@
+// Importing the file system module
 const fs = require("fs");
+// Importing the path core module
 const path = require("path");
 
 const p = path.join(

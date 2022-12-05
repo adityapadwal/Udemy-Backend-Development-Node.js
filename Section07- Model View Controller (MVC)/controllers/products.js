@@ -1,5 +1,6 @@
 const Product = require('../models/product.js');
 
+// adminRoutes
 exports.getAddProducts = (req, res, next) => {
     res.render("add-product", {
       pageTitle: "Add Product",
@@ -10,6 +11,7 @@ exports.getAddProducts = (req, res, next) => {
     });
   }
 
+  // adminRoutes
 exports.postAddProducts = (req, res, next) => {
     const product = new Product(req.body.title);
     product.save();

@@ -11,7 +11,7 @@ const productsController = require('../controllers/products.js');
 const router = express.Router();
 
 // This will match to /admin/add-product => GET
-router.get("/add-product", productsController.getAddProducts); // __dirname points to the routes folder
+router.get("/add-product", productsController.getAddProducts); 
 
 // This will match to /admin/add-product => POST
 router.post("/add-product", productsController.postAddProducts);
