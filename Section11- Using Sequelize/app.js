@@ -4,8 +4,6 @@ const express = require("express");
 const path = require("path");
 // Importing body-parser
 const bodyParser = require("body-parser");
-// Importing Handlebars
-// const expressHbs = require("express-handlebars");
 
 // Importing adminRoutes.js from routes folder
 const adminRoutes = require("./routes/admin.js");
@@ -81,7 +79,7 @@ sequelize
   })
   .then((user) => {
     // console.log(user);
-    return user.createCart();
+    return user.createCart();            //.createCart() method is a magic association method provided by Sequelize
   })
   .then((cart) => {
     app.listen(3000);
