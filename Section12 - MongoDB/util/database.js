@@ -1,10 +1,10 @@
-const mongodb = require("mongodb");
-const mongoClient = mongodb.MongoClient;
+const mongodb = require('mongodb');
+const MongoClient = mongodb.MongoClient;
 
 let _db;
 
 const mongoConnect = (callback) => {
-  mongoClient.connect(
+  MongoClient.connect(
     "mongodb+srv://adityapadwal:aditya3102@cluster0.sfjvdxb.mongodb.net/shop?retryWrites=true&w=majority"
   )
   .then((client) => {

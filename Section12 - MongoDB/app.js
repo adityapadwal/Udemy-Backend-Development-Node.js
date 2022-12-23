@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 
-const mongoConnect = require('./util/database');
+const mongoConnect = require('./util/database').mongoConnect;
 
 const adminRoutes = require("./routes/admin.js");
 // const shopRoutes = require("./routes/shop.js");
@@ -17,7 +17,7 @@ const app = express();
 app.set("view engine", "ejs");
 app.set("views", "views");
 
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: false }));
 
 // for static serving of pages
 app.use(express.static(path.join(__dirname, "public")));
@@ -31,12 +31,13 @@ app.use((req, res, next) => {
   //   .catch((err) => {
   //     console.log(err);
   //   });
+  next();
 });
 
 app.use("/admin", adminRoutes);
 // app.use(shopRoutes);
 
-// app.use(errorController.get404);
+app.use(errorController.get404);
 
 mongoConnect(() => {
   app.listen(3000);
