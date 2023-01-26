@@ -20,6 +20,8 @@
     "express-handlebars": "3.0",
     "handlebars": "^4.7.7",
     "install": "^0.13.0",
+    "mongodb": "^4.13.0",
+    "mongoose": "^6.8.4",
     "mysql2": "^2.3.3",
     "pug": "^3.0.2",
     "save": "^2.9.0",
