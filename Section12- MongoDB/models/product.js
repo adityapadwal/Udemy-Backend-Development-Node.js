@@ -20,7 +20,7 @@ class Product {
       dbOp = db
       .collection('products')
       .updateOne({_id: this._id}, {$set: this});
-    } else {
+    } else { 
       dbOp = db
       .collection('products')
       .insertOne(this)
@@ -37,7 +37,7 @@ class Product {
 
   static fetchAll() {
     const db = getDb();
-    return db.collection('products')
+    return db.collection('products') 
     .find()
     .toArray()
     .then((products) => {

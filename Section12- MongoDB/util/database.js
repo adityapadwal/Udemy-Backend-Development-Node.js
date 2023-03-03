@@ -23,7 +23,7 @@ const mongoConnect = (callback) => {
     console.log(err);
     throw err;
   });
-}
+} 
 
 // this is for returning access to the database connection if it exists
 const getDb = () => {
