@@ -5,7 +5,7 @@ const express = require("express");
 const path = require('path');
 const { resourceLimits } = require("worker_threads");
 
-// Importing products controller
+// Importing shop controller
 const shopController = require('../controllers/shop');
 
 // Creating an express.js router

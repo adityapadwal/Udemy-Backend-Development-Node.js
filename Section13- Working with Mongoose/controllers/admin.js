@@ -1,3 +1,4 @@
+// Importing the product model
 const Product = require("../models/product");
 
 // Done
@@ -34,6 +35,7 @@ exports.postAddProduct = (req, res, next) => {
     });
 };
 
+// Done
 exports.getEditProduct = (req, res, next) => {
   const editMode = req.query.edit; // .query() checks for query params
   if (!editMode) {
@@ -57,6 +59,7 @@ exports.getEditProduct = (req, res, next) => {
     });
 };
 
+// Done
 exports.postEditProducts = (req, res, next) => {
   const prodId = req.body.productId;
   const updatedTitle = req.body.title;
@@ -81,6 +84,7 @@ exports.postEditProducts = (req, res, next) => {
   });
 };
 
+// Done
 exports.getProducts = (req, res, next) => {
   Product.find()
   // .select('title price -_id')
@@ -97,6 +101,7 @@ exports.getProducts = (req, res, next) => {
     });
 };
 
+// Done
 exports.postDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
   Product.findByIdAndRemove(prodId)

@@ -1,6 +1,7 @@
 const Product = require("../models/product");
 const Order = require("../models/order");
 
+// Done
 exports.getProducts = (req, res, next) => {
   Product.find()
     .then((products) => {
@@ -16,6 +17,7 @@ exports.getProducts = (req, res, next) => {
     });
 };
 
+// Done
 exports.getProduct = (req, res, next) => {
   const prodId = req.params.productId;
   Product.findById(prodId)
@@ -31,6 +33,7 @@ exports.getProduct = (req, res, next) => {
     });
 };
 
+// Done
 exports.getIndex = (req, res, next) => {
   Product.find()
     .then((products) => {
