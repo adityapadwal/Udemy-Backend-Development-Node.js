@@ -1,4 +1,4 @@
-// Importing the product model
+// Importing the user model
 const User = require("../models/user");
 
 exports.getLogin = (req, res, next) => {

@@ -51,6 +51,7 @@ exports.getIndex = (req, res, next) => {
     });
 };
 
+// Done
 exports.getCart = async (req, res, next) => {
   await req.user
     .populate("cart.items.productId")
@@ -69,6 +70,7 @@ exports.getCart = async (req, res, next) => {
     });
 };
 
+// Done
 exports.postCart = (req, res, next) => {
   const prodId = req.body.productId;
   Product.findById(prodId)
@@ -81,6 +83,7 @@ exports.postCart = (req, res, next) => {
     });
 };
 
+// Done
 exports.postCartDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
   req.user
@@ -93,6 +96,7 @@ exports.postCartDeleteProduct = (req, res, next) => {
     });
 };
 
+// Done
 exports.postOrder = async (req, res, next) => {
   await req.user
     .populate("cart.items.productId")
@@ -120,6 +124,7 @@ exports.postOrder = async (req, res, next) => {
     });
 };
 
+// Done
 exports.getOrders = (req, res, next) => {
   Order.find({ "user.userId": req.user._id })
     .then((orders) => {
